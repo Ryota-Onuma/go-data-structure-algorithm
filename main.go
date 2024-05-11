@@ -7,6 +7,11 @@ import (
 )
 
 func main() {
+	tryHashTable()
+}
+
+func tryHashTable() {
+	fmt.Println("\n--------tryHashTable--------\n")
 	hash := hash_table.New()
 	hash.Insert("お腹がすいた", "ご飯を食べる")
 	hash.Insert("ラーメン", "美味しい")
