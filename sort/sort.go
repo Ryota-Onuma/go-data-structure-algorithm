@@ -22,3 +22,21 @@ func BubbleSort(arr []int, order Order) {
 		}
 	}
 }
+
+func SelectionSort(arr []int, order Order) {
+	for i := 0; i < len(arr); i++ {
+		foundIndex := i
+		for j := i + 1; j < len(arr); j++ {
+			if order == DESC {
+				if arr[foundIndex] < arr[j] {
+					foundIndex = j
+				}
+			} else {
+				if arr[foundIndex] > arr[j] {
+					foundIndex = j
+				}
+			}
+		}
+		arr[i], arr[foundIndex] = arr[foundIndex], arr[i]
+	}
+}

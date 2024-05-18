@@ -10,6 +10,7 @@ import (
 func main() {
 	tryHashTable()
 	tryBubbleSort()
+	trySelectionSort()
 }
 
 func tryHashTable() {
@@ -37,5 +38,18 @@ func tryBubbleSort() {
 	fmt.Println("Try DESC")
 	fmt.Println("Before:", arr)
 	sort.BubbleSort(arr, sort.DESC)
+	fmt.Println("After:", arr)
+}
+
+func trySelectionSort() {
+	fmt.Println("\n--------TrySelectionSort--------\n")
+	arr := []int{5, 3, 8, 4, 2, 1, 9, 7, 6, 10, 15, 20, 13, 12, 11, 14, 19, 18, 17, 16}
+	fmt.Println("Try ASC")
+	fmt.Println("Before:", arr)
+	sort.SelectionSort(arr, sort.ASC)
+	fmt.Println("After:", arr)
+	fmt.Println("Try DESC")
+	fmt.Println("Before:", arr)
+	sort.SelectionSort(arr, sort.DESC)
 	fmt.Println("After:", arr)
 }
