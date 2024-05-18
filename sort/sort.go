@@ -40,3 +40,27 @@ func SelectionSort(arr []int, order Order) {
 		arr[i], arr[foundIndex] = arr[foundIndex], arr[i]
 	}
 }
+
+func InsertionSort(arr []int, order Order) {
+	if order == DESC {
+		for i := 0; i < len(arr)-1; i++ {
+			if arr[i] < arr[i+1] {
+				for j := i; j >= 0; j-- {
+					if arr[j] < arr[j+1] {
+						arr[j], arr[j+1] = arr[j+1], arr[j]
+					}
+				}
+			}
+		}
+	} else {
+		for i := 0; i < len(arr)-1; i++ {
+			if arr[i] > arr[i+1] {
+				for j := i; j >= 0; j-- {
+					if arr[j] > arr[j+1] {
+						arr[j], arr[j+1] = arr[j+1], arr[j]
+					}
+				}
+			}
+		}
+	}
+}
