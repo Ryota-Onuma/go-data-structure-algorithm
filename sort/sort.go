@@ -64,3 +64,39 @@ func InsertionSort(arr []int, order Order) {
 		}
 	}
 }
+
+func QuickSort(arr []int, order Order) {
+	copy(arr, quickSort(arr, order))
+}
+
+func quickSort(arr []int, order Order) []int {
+	if len(arr) < 2 {
+		return arr
+	}
+
+	pivot := arr[0]
+
+	var left, right []int
+	if order == DESC {
+		for i := 1; i < len(arr); i++ {
+			if arr[i] >= pivot {
+				left = append(left, arr[i])
+			} else {
+				right = append(right, arr[i])
+			}
+		}
+	} else {
+		for i := 1; i < len(arr); i++ {
+			if arr[i] <= pivot {
+				left = append(left, arr[i])
+			} else {
+				right = append(right, arr[i])
+			}
+		}
+	}
+	var result []int
+	result = append(result, quickSort(left, order)...)
+	result = append(result, pivot)
+	result = append(result, quickSort(right, order)...)
+	return result
+}
