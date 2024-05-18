@@ -100,3 +100,52 @@ func quickSort(arr []int, order Order) []int {
 	result = append(result, quickSort(right, order)...)
 	return result
 }
+
+func MergeSort(arr []int, order Order) {
+	merged := mergeSort(arr, order)
+	copy(arr, merged)
+}
+
+func mergeSort(arr []int, order Order) []int {
+	if len(arr) < 2 {
+		return arr
+	}
+	center := len(arr) / 2
+	left := mergeSort(arr[:center], order)
+	right := mergeSort(arr[center:], order)
+
+	var i, j, k int
+	merged := make([]int, len(arr))
+	for i < len(left) && j < len(right) {
+		if order == DESC {
+			if left[i] <= right[j] {
+				merged[k] = right[j]
+				j++
+			} else {
+				merged[k] = left[i]
+				i++
+			}
+		} else {
+			if left[i] >= right[j] {
+				merged[k] = right[j]
+				j++
+			} else {
+				merged[k] = left[i]
+				i++
+			}
+		}
+		k++
+	}
+
+	for i < len(left) {
+		merged[k] = left[i]
+		i++
+		k++
+	}
+	for j < len(right) {
+		merged[k] = right[j]
+		j++
+		k++
+	}
+	return merged
+}

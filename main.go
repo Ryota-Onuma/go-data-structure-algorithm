@@ -13,6 +13,7 @@ func main() {
 	trySelectionSort()
 	tryInsertionSort()
 	tryQuickSort()
+	tryMergeSort()
 }
 
 func tryHashTable() {
@@ -79,5 +80,18 @@ func tryQuickSort() {
 	fmt.Println("Try DESC")
 	fmt.Println("Before:", arr)
 	sort.QuickSort(arr, sort.DESC)
+	fmt.Println("After:", arr)
+}
+
+func tryMergeSort() {
+	fmt.Println("\n--------TryMergeSort--------\n")
+	arr := []int{5, 3, 8, 4, 2, 1, 9, 7, 6, 10, 15, 20, 13, 12, 11, 14, 19, 18, 17, 16}
+	fmt.Println("Try ASC")
+	fmt.Println("Before:", arr)
+	sort.MergeSort(arr, sort.ASC)
+	fmt.Println("After:", arr)
+	fmt.Println("Try DESC")
+	fmt.Println("Before:", arr)
+	sort.MergeSort(arr, sort.DESC)
 	fmt.Println("After:", arr)
 }
