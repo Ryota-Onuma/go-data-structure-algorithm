@@ -4,11 +4,13 @@ import (
 	"fmt"
 
 	"github.com/Ryota-Onuma/go-data-structure-algorithm/data/hash_table"
+	"github.com/Ryota-Onuma/go-data-structure-algorithm/data/list"
 	"github.com/Ryota-Onuma/go-data-structure-algorithm/sort"
 )
 
 func main() {
 	tryHashTable()
+	tryLinerLinkedList()
 	tryBubbleSort()
 	trySelectionSort()
 	tryInsertionSort()
@@ -29,6 +31,23 @@ func tryHashTable() {
 	v2, ok2 := hash.Get("ラーメン")
 	fmt.Println(v2, ok2)
 	fmt.Println(hash)
+}
+
+func tryLinerLinkedList() {
+	fmt.Println("\n--------TryLinerLinkedList--------\n")
+	l := list.NewLinerLinkedList()
+	elments := [10]int{5, 2, 4, 6, 1, 3, 8, 7, 10, 9}
+	for _, e := range elments {
+		l.Append(e)
+	}
+
+	fmt.Println(l.ValueOf(9))
+	fmt.Println(l.Len())
+	fmt.Println(l)
+	if err := l.Insert(100, 8); err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println(l)
 }
 
 func tryBubbleSort() {
