@@ -132,3 +132,40 @@ func (l *LinerLinkedList) Insert(v any, i int) error {
 
 	return nil
 }
+
+func (l *LinerLinkedList) Remove(i int) error {
+	if i < 0 {
+		return fmt.Errorf("i must be greater than 0, but got %d", i)
+	}
+	listLen := l.Len()
+	if i >= listLen {
+		return fmt.Errorf("expected i is less than %d, but got %d", listLen, i)
+	}
+
+	if i == 0 {
+		l.head = l.head.next
+		return nil
+	}
+
+	if i == listLen-1 {
+		prevNode := l.findNodeByIndex(i - 1)
+		if prevNode == nil {
+			return fmt.Errorf("cannot find node at index %d", i-1)
+		}
+		prevNode.next = nil
+		return nil
+	}
+
+	prevNode := l.findNodeByIndex(i - 1)
+	if prevNode == nil {
+		return fmt.Errorf("cannot find node at index %d", i-1)
+	}
+
+	if prevNode.next == nil {
+		return fmt.Errorf("cannot find node at index %d", i)
+	}
+
+	prevNode.next = prevNode.next.next
+
+	return nil
+}

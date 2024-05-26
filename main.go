@@ -48,6 +48,10 @@ func tryLinerLinkedList() {
 		fmt.Println(err)
 	}
 	fmt.Println(l)
+	if err := l.Remove(l.Len()-1); err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println(l)
 }
 
 func tryBubbleSort() {
